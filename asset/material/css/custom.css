@@ -1,0 +1,29 @@
+table {
+	/*table-layout: fixed;*/
+}
+th {
+	 text-align: center;
+	 font-size: 1.5em;
+	 vertical-align:middle !important;
+}
+
+td {
+	 font-size: 1.5em;
+	 word-wrap:break-word;
+	 min-width: 20px;
+	 max-width: 160px;
+}
+
+
+.logo-pa {
+	
+	height: 120px;
+	background-image:url('../../img/pa tenggarong.png'), linear-gradient(to right, white, green);
+	background-position:left;
+	background-repeat:no-repeat;
+	background-size: contain;
+}
+
+.sidang-active {
+	background-color: orange;
+}

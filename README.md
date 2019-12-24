@@ -18,4 +18,4 @@ Kemudian import file sql yang ada di dalam folder projek.
 Pull request dipersilakan. Untuk perubahan besar, harap buka issue terlebih dahulu untuk membahas apa yang ingin anda ubah.
 
 ## License
-[MIT](LICENSE.md)
+[MIT](license.txt)

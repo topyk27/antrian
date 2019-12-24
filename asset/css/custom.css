@@ -6,3 +6,10 @@ body{
 	background-color: orange !important;
 	color: white;
 }
+
+.footer-fixed-bottom{
+	position: fixed;
+	height: 100px;
+	bottom: 0;
+	width: 100%;
+}

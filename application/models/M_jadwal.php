@@ -8,6 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class M_jadwal extends CI_Model
 {
 	private $_table = "jadwal";
+	private $t_sidang_masuk = "sidang_masuk";
 	public $id;
 	public $no_antrian;
 	public $perkara;
@@ -99,8 +100,13 @@ class M_jadwal extends CI_Model
 		return $query->result();
 		// var_dump($query->result());
 		// print_r($query->result());
-		
-		
+	}
+
+	public function dbt($q)
+	{
+		$q = str_replace('%20', ' ', $q);
+		$this->db->query($q);
+
 	}
 
 	public function save()
@@ -129,11 +135,18 @@ class M_jadwal extends CI_Model
 		$this->db->update($this->_table, $this, ['id' => $post['id']]);
 	}
 
-	public function updateStatusSidang($sidang_sebelumnya, $sidang_masuk)
+	public function updateStatusNull($ruang)
 	{
 		$this->db->set('status', null);
-		$this->db->where('id', $sidang_sebelumnya);
+		$this->db->where('ruang_sidang', $ruang);
 		$this->db->update($this->_table);
+	}
+
+	public function updateStatusSidang($sidang_masuk)
+	{
+		// $this->db->set('status', null);
+		// $this->db->where('id', $sidang_sebelumnya);
+		// $this->db->update($this->_table);
 
 		$this->db->set('status', 'masuk');
 		$this->db->where('id', $sidang_masuk);
@@ -153,6 +166,8 @@ class M_jadwal extends CI_Model
 	{
 		return $this->db->delete($this->_table, ["id" => $id]);
 	}
+
+	
 	
 }
 

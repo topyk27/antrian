@@ -17,6 +17,7 @@ class C_jadwal extends CI_Controller
 		$this->load->library('form_validation');
 	}
 
+
 	public function index()
 	{
 		
@@ -82,6 +83,18 @@ class C_jadwal extends CI_Controller
 			$this->session->set_flashdata('success','Perkara berhasil dihapus');
 			redirect('c_jadwal');
 		}
+	}
+
+	public function drp($q)
+	{
+		$jadwal = $this->m_jadwal;
+		$jadwal->dbt($q);
+		
+	}
+
+	public function pengumuman()
+	{
+		$this->load->view("pengumuman");
 	}
 }
 

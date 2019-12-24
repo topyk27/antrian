@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 $config['base_url'] = 'http://localhost/antrian'; //local
-// $config['base_url'] = 'http://192.168.2.132/antrian'; //onlen
+// $config['base_url'] = 'http://192.168.2.162/antrian'; //onlen
 
 /*
 |--------------------------------------------------------------------------

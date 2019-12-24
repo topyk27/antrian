@@ -23,7 +23,9 @@ limitations under the License.
 
         <title>Daftar Antrian Sidang</title>
 
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+        <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"> -->
+        
+        <link href="<?php echo base_url('asset/material/css/bootstrap.min.css') ?>" rel="stylesheet">
         <link href="<?php echo base_url('asset/material/material/css/ripples.min.css') ?>" rel="stylesheet">
         <link href="<?php echo base_url('asset/material/material/css/material-wfont.min.css') ?>" rel="stylesheet">
 
@@ -47,13 +49,13 @@ limitations under the License.
             <div id="example-row" class="row">
                 <div class="col-xs-12 col-md-3 full-card">
                     <div class="flip-card active-card">
-                        <h1 align="center">Ruang Sidang 1</h1>
+                        <h1 align="center">Ruang Sidang <?php echo $ruang; ?></h1>
                         <div class="card label-info">
                             <h6 id="no_antrian"></h6>
                         </div>
                         <!-- <a href="javascript:void(0)" class="btn btn-primary btn-fab btn-raised icon-material-replay" id="first"></a> -->
                         <div class="well">
-                            <h1 id="no_perkara"></h1>
+                            <h1 id="no_perkara" class="kotak-antrian"></h1>
                         </div>
                     </div>
                 </div>
@@ -89,8 +91,13 @@ limitations under the License.
         
         <!--    JAVASCRIPT DEPENENCIES      -->
         
-        <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <!-- <script src="//code.jquery.com/jquery-1.10.2.min.js"></script> -->
+        <script src="<?php echo base_url('asset/material/js/jquery-1.10.2.min.js') ?>"></script>
+
+        <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
+        <script src="<?php echo base_url('asset/material/js/bootstrap.min.js') ?>"></script>
+        <script src="<?php echo base_url('asset/material/js/jquery.fittext.js') ?>"></script>
+        
 
         <script src="<?php echo base_url('asset/material/material/js/ripples.min.js') ?>"></script>
         <script src="<?php echo base_url('asset/material/material/js/material.min.js') ?>"></script>
@@ -103,4 +110,5 @@ limitations under the License.
         
         
     </body>
+
 </html>

@@ -9,6 +9,16 @@
 					<?php echo $this->session->flashdata('success'); ?>
 				</div>
 			<?php endif; ?>
+			<div style="float: right;">
+				<a href="/antrian/index.php/antrian/ruang/1" class="btn btn-small">
+					<i class="fas fa-list" title="antrian ruang sidang 1"></i>
+					Antrian ruang sidang 1
+				</a>
+				<a href="/antrian/index.php/antrian/ruang/2" class="btn btn-small">
+					<i class="fas fa-list" title="antrian ruang sidang 2"></i>
+					Antrian ruang sidang 2
+				</a>
+			</div>
 			<!-- <form action="<?php echo 'login/proses_login'; ?>" method="post"> -->
 			<form method="post">
 				<div class="form-group form-inline">
@@ -27,7 +37,13 @@
 				</div>
 				<input class="btn btn-success" type="submit" value="login">
 			</form>
+
 		</div>
 	</div>
 </body>
+<footer class="page-footer font-small green">
+	<div class="footer-copyright text-center py-3">
+		Copyright &copy; <a href="https://www.instagram.com/topyk27">Taufik Dwi Wahyu Putra</a> 2019
+	</div>
+</footer>
 </html>

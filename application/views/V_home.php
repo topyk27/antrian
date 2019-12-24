@@ -3,10 +3,12 @@
 <body>
 	<!-- buat simpan id antrian sebelumnya biar update statusnya -->
 	<input type="hidden" value="<?php echo $this->session->userdata('antrian_sebelumnya'); ?>" id="antrian_sebelumnya">
+	<input type="hidden" name="ruang_sidang" value="<?php echo $this->session->userdata('ruang_sidang'); ?>">
 <div class="container">
 	<div class="container-fluid">
 		<div style="float:right">
 			<h3><?php echo $this->session->userdata('username'); ?></h3>
+			<input type="hidden" name="voice" value="<?php echo $this->session->userdata('voice'); ?>">
 			<a href="<?php echo site_url('login/logout') ?>" class="btn btn-small" title="Keluar">
 				<i class="fas fa-sign-out-alt"> Keluar</i>
 			</a>
@@ -18,6 +20,18 @@
 	</a>
 	<a id="abidin" href="#" class="btn btn-small" title="Panggil Pak Abidin" onclick="kasubagHonor(<?php echo $this->session->userdata('ruang_sidang'); ?>)">
 		<i class="fas fa-phone"></i>Panggil Pak Abidin
+	</a>
+	<a id="buka_sidang" href="#" class="btn btn-small" title="Teks Buka Sidang" onclick="buka_sidang()">
+		<i class="fas fa-microphone"></i>Buka Sidang
+	</a>
+	<a id="anti_korupsi" href="#" class="btn btn-small" title="Anti Korupsi" onclick="anti_korup()">
+		<i class="fas fa-dollar-sign"></i> Anti Korupsi
+	</a>
+	<a id="anti_korupsi2" href="#" class="btn btn-small" title="Anti Korupsi" onclick="anti_korup2()">
+		<i class="fas fa-dollar-sign"></i> Anti Korupsi 2 Jam
+	</a>
+	<a id="pengumuman" href="<?php echo site_url('c_jadwal/pengumuman') ?>" class="btn btn-small" title="pengumuman">
+		<i class="fas fa-bullhorn"></i>Pengumuman
 	</a>
 	<?php if($this->session->flashdata('success')): ?>
 			<div class="alert alert-success" role="alert">
@@ -92,6 +106,12 @@
 	</table>
 	</div>
 </div>
+
 <?php $this->load->view("_partials/js.php") ?>
 </body>
+<footer class="page-footer font-small green">
+	<div class="footer-copyright text-center py-3">
+		Copyright &copy; <a href="https://www.instagram.com/topyk27">Taufik Dwi Wahyu Putra</a> 2019
+	</div>
+</footer>
 </html>

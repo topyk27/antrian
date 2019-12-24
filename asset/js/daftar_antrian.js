@@ -68,5 +68,6 @@ $(document).ready(function () {
 		console.log("mau reload");
 		tabel.ajax.reload()
 	}, 5000);
+	jQuery("#no_perkara").fitText();
 
 });

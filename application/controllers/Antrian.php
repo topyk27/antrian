@@ -28,12 +28,15 @@ class Antrian extends CI_Controller
 
 	}
 
-	public function sidang_masuk($sidang_sebelumnya,$sidang_masuk)
+	public function sidang_masuk($ruang,$sidang_masuk)
 	{
-		$respon = $this->m_jadwal->updateStatusSidang($sidang_sebelumnya,$sidang_masuk);
+		$update = $this->m_jadwal->updateStatusNull($ruang);
+		$respon = $this->m_jadwal->updateStatusSidang($sidang_masuk);
 		echo $respon;
 
 	}
+
+	
 }
 
  ?>

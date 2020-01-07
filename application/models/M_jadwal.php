@@ -84,6 +84,7 @@ class M_jadwal extends CI_Model
 		$this->db->from($this->_table);
 		$this->db->where('status', 'masuk');
 		$this->db->where('jadwal_sidang', date("Y/m/d"));
+		$this->db->where('ruang_sidang', $ruang_sidang);
 		$q = $this->db->get();
 		$row = $q->row();
 		if(!empty($row))

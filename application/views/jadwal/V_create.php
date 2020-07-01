@@ -72,4 +72,5 @@
 		</div>
 	</div>
 </body>
+<?php $this->load->view("_partials/js.php") ?>
 </html>

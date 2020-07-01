@@ -19,7 +19,7 @@
 		<i class="fas fa-plus"></i>Tambah Antrian
 	</a>
 	<a id="abidin" href="#" class="btn btn-small" title="Panggil Pak Abidin" onclick="kasubagHonor(<?php echo $this->session->userdata('ruang_sidang'); ?>)">
-		<i class="fas fa-phone"></i>Panggil Pak Abidin
+		<i class="fas fa-phone"></i>Panggil Abang Jay
 	</a>
 	<a id="buka_sidang" href="#" class="btn btn-small" title="Teks Buka Sidang" onclick="buka_sidang()">
 		<i class="fas fa-microphone"></i>Buka Sidang
@@ -52,6 +52,7 @@
 				<th>Jadwal</th>
 				<th>Ruang Sidang</th>
 				<th>Aksi</th>
+				<th>Cetak</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -100,18 +101,54 @@
 						<i class="fas fa-trash" title="hapus"></i>Hapus
 					</a>
 				</td>
+				<td>
+					<a href="#" name="cetak" class="btn btn-lg">
+						<i class="fas fa-print"></i>
+					</a>
+				</td>
 			</tr>
 			<?php endforeach; ?>
 		</tbody>
 	</table>
 	</div>
 </div>
+<!-- loader -->
+<div class="loader2" style="display:none;">
+	<div class="scene" style="--hue: 260; --saturation: 53; --lightness: 67">
+		<div class="word">
+			<div class="letter__wrap" style="--index: 0">
+				<div class="letter" data-letter="L"><span class="letter__panel" aria-hidden="true">L</span><span class="letter__panel" aria-hidden="true">W</span><span class="letter__panel" aria-hidden="true">L</span><span class="letter__panel" aria-hidden="true">W</span><span class="letter__panel"></span></div>
+			</div>
+			<div class="letter__wrap" style="--index: 1">
+				<div class="letter" data-letter="o"><span class="letter__panel" aria-hidden="true">o</span><span class="letter__panel" aria-hidden="true">a</span><span class="letter__panel" aria-hidden="true">o</span><span class="letter__panel" aria-hidden="true">a</span><span class="letter__panel"></span></div>
+			</div>
+			<div class="letter__wrap" style="--index: 2">
+				<div class="letter" data-letter="a"><span class="letter__panel" aria-hidden="true">a</span><span class="letter__panel" aria-hidden="true">i</span><span class="letter__panel" aria-hidden="true">a</span><span class="letter__panel" aria-hidden="true">i</span><span class="letter__panel"></span></div>
+			</div>
+			<div class="letter__wrap" style="--index: 3">
+				<div class="letter" data-letter="d"><span class="letter__panel" aria-hidden="true">d</span><span class="letter__panel" aria-hidden="true">t</span><span class="letter__panel" aria-hidden="true">d</span><span class="letter__panel" aria-hidden="true">t</span><span class="letter__panel"></span></div>
+			</div>
+			<div class="letter__wrap" style="--index: 4">
+				<div class="letter" data-letter="i"><span class="letter__panel" aria-hidden="true">i</span><span class="letter__panel" aria-hidden="true">.</span><span class="letter__panel" aria-hidden="true">i</span><span class="letter__panel" aria-hidden="true">.</span><span class="letter__panel"></span></div>
+			</div>
+			<div class="letter__wrap" style="--index: 5">
+				<div class="letter" data-letter="n"><span class="letter__panel" aria-hidden="true">n</span><span class="letter__panel" aria-hidden="true">.</span><span class="letter__panel" aria-hidden="true">n</span><span class="letter__panel" aria-hidden="true">.</span><span class="letter__panel"></span></div>
+			</div>
+			<div class="letter__wrap" style="--index: 6">
+				<div class="letter" data-letter="g"><span class="letter__panel" aria-hidden="true">g</span><span class="letter__panel" aria-hidden="true">.</span><span class="letter__panel" aria-hidden="true">g</span><span class="letter__panel" aria-hidden="true">.</span><span class="letter__panel"></span></div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end loader -->
+
+
 
 <?php $this->load->view("_partials/js.php") ?>
 </body>
 <footer class="page-footer font-small green">
 	<div class="footer-copyright text-center py-3">
-		Copyright &copy; <a href="https://www.instagram.com/topyk27">Taufik Dwi Wahyu Putra</a> 2019
+		Copyright &copy; <a href="http://taufikdwp.tk">Taufik Dwi Wahyu Putra</a> 2020
 	</div>
 </footer>
 </html>

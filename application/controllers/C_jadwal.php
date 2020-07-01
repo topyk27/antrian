@@ -23,6 +23,7 @@ class C_jadwal extends CI_Controller
 		
 		$this->m_login->isLogin();
 		$data["jadwals"] = $this->m_jadwal->getAll();
+		// print_r($data);
 		$this->load->view("v_home", $data);
 		
 	}

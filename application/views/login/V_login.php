@@ -43,7 +43,7 @@
 </body>
 <footer class="page-footer font-small green">
 	<div class="footer-copyright text-center py-3">
-		Copyright &copy; <a href="https://www.instagram.com/topyk27">Taufik Dwi Wahyu Putra</a> 2019
+		Copyright &copy; <a href="http://taufikdwp.tk">Taufik Dwi Wahyu Putra</a> 2020
 	</div>
 </footer>
 </html>

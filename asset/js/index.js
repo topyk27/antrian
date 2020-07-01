@@ -21,12 +21,13 @@ var tabel_jadwal = $('#jadwal').dataTable({
 		// 	$(this).append($("#pengumuman"));
 		// });
 		tombol_panggil();
+		cetak();
 	}
 });
 
 function kasubagHonor($ruang)
 {
-	responsiveVoice.speak("Bapak Abidin. Ruang sidang " + ruang, voice, rate);
+	responsiveVoice.speak("Abang Jay. Ruang sidang " + ruang, voice, rate);
 }
 
 function pangil_end(){
@@ -137,6 +138,51 @@ $("a[name='saksi']").click(function(e){
 $(".alert").fadeTo(2000, 500).slideUp(500, function(){
     $(".alert").slideUp(500);
 });
+
+// fungsi cetak
+function cetak()
+{
+	$("a[name='cetak']").click(function(e){
+		e.preventDefault();
+		$row = this.closest('tr');
+		$cols = $($row).find("td");
+		antrian = $cols.filter("[name='no antrian']").text();
+		// antrian = antrian.replace(/\s/g,''); //replace semua spasi
+		antrian = antrian.trim();
+		jadwal = $cols.filter("[name='jadwal sidang']").text();
+		jadwal = jadwal.trim();
+		ruang = $cols.filter("[name='ruang sidang']").text();
+		ruang = ruang.trim();
+		
+		$.ajax({
+			type: "POST",
+			url: "http://" + base_url + "index.php/antrian/cetak",
+			data: {antrian: antrian, jadwal: jadwal, ruang: ruang},
+			dataType: 'json',
+			beforeSend: function(){
+				$(".loader2").show();
+			},
+			success: function(respon){
+				console.log("ini ip nya " + respon.ip);
+				if(respon.success == 1)
+				{
+					console.log("berhasil");
+				}
+				else
+				{
+					console.log("gagal");
+					alert("gagal");
+				}
+			},
+			complete: function(){
+				console.log("yay");
+				$(".loader2").hide();
+				
+			}
+		});
+	});
+}
+// end fungsi cetak
 
 function buka_sidang()
 {

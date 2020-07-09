@@ -6,24 +6,55 @@ base_url = window.location.hostname + url[0];
 ruang = $("input[name='ruang_sidang']").val();
 console.log(ruang);
 console.log(voice);
-var tabel_jadwal = $('#jadwal').dataTable({
-	fnDrawCallback: function (oSettings) {
-		$('.dataTables_filter').each(function () {
-			$(this).prepend($("#tambah"));
+$(document).ready(function(){
+	var tabel_jadwal = $('#jadwal').DataTable({
+		fnDrawCallback: function (oSettings) {
+			$('.dataTables_filter').each(function () {
+				$(this).prepend($("#tambah"));
+			});
+			
+			tombol_panggil();
+			// cetak();
+		}
+	});
+
+	// fungsi cetak
+	$('#jadwal tbody').on('click', "a[name='cetak']", function(){
+		var data = tabel_jadwal.row($(this).parents('tr')).data();
+		antrian = data[2].trim();
+		perkara = data[3].trim();
+		jadwal = data[6].trim();
+		ruang = data[7].trim();
+		$.ajax({
+			type: "POST",
+			url: "http://" + base_url + "index.php/antrian/cetak",
+			data: {antrian: antrian, jadwal: jadwal, ruang: ruang, perkara: perkara},
+			dataType: 'json',
+			beforeSend: function(){
+				$(".loader2").show();
+			},
+			success: function(respon){
+				console.log("ini ip nya " + respon.ip);
+				if(respon.success == 1)
+				{
+					console.log("berhasil");
+				}
+				else
+				{
+					console.log("gagal");
+					alert("gagal");
+				}
+			},
+			complete: function(){
+				console.log("yay");
+				$(".loader2").hide();
+				
+			}
 		});
-		// $('.dataTables_length').each(function () {
-		// 	$(this).append($("#abidin"));
-		// });
-		// $('.dataTables_length').each(function () {
-		// 	$(this).append($("#buka_sidang"));
-		// });
-		// $('.dataTables_length').each(function () {
-		// 	$(this).append($("#pengumuman"));
-		// });
-		tombol_panggil();
-		cetak();
-	}
+	});
+	// end fungsi cetak
 });
+
 
 function kasubagHonor($ruang)
 {
@@ -139,50 +170,7 @@ $(".alert").fadeTo(2000, 500).slideUp(500, function(){
     $(".alert").slideUp(500);
 });
 
-// fungsi cetak
-function cetak()
-{
-	$("a[name='cetak']").click(function(e){
-		e.preventDefault();
-		$row = this.closest('tr');
-		$cols = $($row).find("td");
-		antrian = $cols.filter("[name='no antrian']").text();
-		// antrian = antrian.replace(/\s/g,''); //replace semua spasi
-		antrian = antrian.trim();
-		jadwal = $cols.filter("[name='jadwal sidang']").text();
-		jadwal = jadwal.trim();
-		ruang = $cols.filter("[name='ruang sidang']").text();
-		ruang = ruang.trim();
-		
-		$.ajax({
-			type: "POST",
-			url: "http://" + base_url + "index.php/antrian/cetak",
-			data: {antrian: antrian, jadwal: jadwal, ruang: ruang},
-			dataType: 'json',
-			beforeSend: function(){
-				$(".loader2").show();
-			},
-			success: function(respon){
-				console.log("ini ip nya " + respon.ip);
-				if(respon.success == 1)
-				{
-					console.log("berhasil");
-				}
-				else
-				{
-					console.log("gagal");
-					alert("gagal");
-				}
-			},
-			complete: function(){
-				console.log("yay");
-				$(".loader2").hide();
-				
-			}
-		});
-	});
-}
-// end fungsi cetak
+
 
 function buka_sidang()
 {
@@ -205,6 +193,14 @@ function buka_sidang()
 		+ "8. Toilet umum berada di samping mushalla, khusus untuk pengunjung. "
 		+ "9. Mushalla dan tempat wudhu jika pada saatnya pengunjung akan melaksanakan shalat. "
 		+ "10. Kantin umum berada di belakang gedung pengadilan agama. "
+		+ "Dalam rangka ikut memutuskan tali rantai penyebaran virus corona di pengadilan agama tenggarong. "
+		+ "Maka setiap orang yang datang ke pengadilan agama tenggarong diwajibkan. "
+		+ "1. Cuci tangan dengan sabun di wastafel yang telah disediakan. "
+		+ "2. Memakai masker. "
+		+ "3. Menjaga jarak. "
+		+ "4. Menduduki tempat yang telah disediakan dan tidak duduk pada tempat yang ada tanda silangnya. "
+		+ "Semoga kita terhindar dari virus corona dan semoga pandemi covid 19 cepat berlalu. "
+		+ "Aamiin, ya robbal alamin. "
 		+ "Untuk pengunjung yang akan mengikuti sidang. harap diperhatikan aturan-aturan di dalam ruang sidang. "
 		+ "1. Dilarang membawa anak. "
 		+ "2. Dilarang membawa senjata tajam. "

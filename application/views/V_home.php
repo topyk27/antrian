@@ -101,7 +101,7 @@
 						<i class="fas fa-trash" title="hapus"></i>Hapus
 					</a>
 				</td>
-				<td>
+				<td name="ctk">
 					<a href="#" name="cetak" class="btn btn-lg">
 						<i class="fas fa-print"></i>
 					</a>

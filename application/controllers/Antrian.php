@@ -47,6 +47,7 @@ class Antrian extends CI_Controller
 		// $ip_printer = "\\\$ipaddress\POS1";
 
 		// fungsi cetak
+		// good roll paper 76 x 297 mm
 		$var_magin_left = 10;
 		try {
 			$p = printer_open('\\\192.168.2.48\POS1'); //work ip nya ip printer
@@ -108,7 +109,9 @@ class Antrian extends CI_Controller
 		} catch (Exception $e) {
 			$response['success'] = 0;
 		}
-		
+		// end good roll paper 76 x 297 mm
+
+
 		// end fungsi cetak
 		
 		$response['ip'] = $ipaddress;

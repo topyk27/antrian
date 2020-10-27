@@ -50,7 +50,8 @@ class Antrian extends CI_Controller
 		// good roll paper 76 x 297 mm
 		$var_magin_left = 10;
 		try {
-			$p = printer_open('\\\192.168.2.48\POS1'); //work ip nya ip printer
+			$p = printer_open('\\\192.168.2.110\POS1'); //work ip nya ip printer
+			// $p = printer_open('\\\192.168.2.29\POS1'); //work ip nya ip printer
 			// $p = printer_open($ip_printer); //work ip nya ip printer
 			printer_set_option($p, PRINTER_MODE, "RAW"); // mode disobek (gak ngegulung kertas)
 

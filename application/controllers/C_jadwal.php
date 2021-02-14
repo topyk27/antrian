@@ -97,6 +97,13 @@ class C_jadwal extends CI_Controller
 	{
 		$this->load->view("pengumuman");
 	}
+
+	public function sync($tgl)
+	{
+		$jadwal = $this->m_jadwal;
+		$result = $jadwal->sync($tgl);
+		// print_r($result);
+	}
 }
 
  ?>

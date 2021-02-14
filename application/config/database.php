@@ -94,3 +94,26 @@ $db['default'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
+
+// konfig db sipp (fail)
+$db['sipp'] = array(
+	'dsn'	=> '',
+	'hostname' => '192.168.2.39',
+	'username' => 'root',
+	'password' => '12345',
+	'database' => 'sipp',
+	'dbdriver' => 'mysql',
+	'dbprefix' => '',
+	'pconnect' => FALSE,
+	'db_debug' => (ENVIRONMENT !== 'production'),
+	'cache_on' => FALSE,
+	'cachedir' => '',
+	'char_set' => 'utf8',
+	'dbcollat' => 'utf8_general_ci',
+	'swap_pre' => '',
+	'encrypt' => FALSE,
+	'compress' => FALSE,
+	'stricton' => FALSE,
+	'failover' => array(),
+	'save_queries' => TRUE
+);

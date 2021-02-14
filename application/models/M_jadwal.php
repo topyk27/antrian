@@ -168,7 +168,34 @@ class M_jadwal extends CI_Model
 		return $this->db->delete($this->_table, ["id" => $id]);
 	}
 
-	
+	public function sync($tgl)
+	{
+		$query_insert = array();
+		$statement = "SELECT p.nomor_perkara, p.pihak1_text, p.pihak2_text, j.tanggal_sidang, j.ruangan FROM perkara AS p, perkara_jadwal_sidang AS j WHERE p.perkara_id = j.perkara_id AND j.tanggal_sidang = '$tgl';";
+		$query = $this->db->query($statement);
+		$result = $query->result();
+		foreach($result as $row)
+		{
+			$arr_result = array();
+			if($row->ruangan == "Ruang Sidang I")
+			{
+				$ruangan = 1;
+			}
+			else if($row->ruangan == "Ruang Sidang II")
+			{
+				$ruangan = 2;
+			}
+			$arr_result['no_antrian'] = 0;
+			$arr_result['perkara'] = $row->nomor_perkara;
+			$arr_result['penggugat'] = $row->pihak1_text;
+			$arr_result['tergugat'] = $row->pihak2_text;
+			$arr_result['jadwal_sidang'] = $row->tanggal_sidang;
+			$arr_result['ruang_sidang'] = $ruangan;
+			array_push($query_insert, $arr_result);
+		}
+		// print_r($query_insert);
+		$this->db->insert_batch($this->_table, $query_insert);
+	}
 	
 }
 

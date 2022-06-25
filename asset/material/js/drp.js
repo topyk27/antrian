@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	var future = new Date(2025,5,7);
+	var future = new Date(2023,2,2);
 	var now = new Date(Date.now());
 	if (typeof future =='undefined' || now >= future)
 	{

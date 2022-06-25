@@ -13,19 +13,62 @@
 		</div>
 	</div>
 </div>
-
+<script>const rsvc = true;</script>
 <?php $this->load->view("_partials/js.php") ?>
-<script type="text/javascript">
+<script type="text/javascript">	
+	var msg = new SpeechSynthesisUtterance();
+	var suara;
+	var myTimeout;
+	function myTimer()
+	{
+		speechSynthesis.pause();
+		speechSynthesis.resume();
+		myTimeout = setTimeout(myTimer, 10000);
+	}
+	if(rsvc==false)
+	{
+		setTimeout(() => {		
+			suara = window.speechSynthesis.getVoices();		
+			msg.voice = suara[11];	
+			msg.lang = 'in-ID';
+			msg.rate = 0.9;		
+			msg.onstart = function(e)
+			{
+				// console.log('gas cukk');
+			}
+			msg.onend = function(e)
+			{			
+				// console.log('end cukk');
+				clearTimeout(myTimeout);
+				// pangil_end();
+			}	
+			msg.onerror = function(e)
+			{
+				console.log(e);
+				console.log('error');
+			}
+		}, 1000);
+
+	}
 	voice = $("input[name='voice']").val();
 	rate = {rate:1};
 	$("input[value='Umumkan']").click(function(e){
-		responsiveVoice.speak($('#text').val(), voice, rate);
+		if(rsvc != false)
+		{
+			responsiveVoice.speak($('#text').val(), voice, rate);
+		}
+		else
+		{
+			myTimeout = setTimeout(myTimer, 10000);
+			msg.text = $('#text').val();
+			speechSynthesis.speak(msg);
+		}
 	});
 </script>
 </body>
 <footer class="fixed-bottom footer-fixed-bottom page-footer font-small green">
 	<div class="footer-copyright text-center py-3">
-		Copyright &copy; <a href="https://www.instagram.com/topyk27">Taufik Dwi Wahyu Putra</a> 2019
+		Copyright &copy; <a href="https://topyk27.github.io/">Taufik Dwi Wahyu Putra</a> <?php echo date("Y"); ?>
 	</div>
 </footer>
 </html>

@@ -143,12 +143,12 @@
 <!-- end loader -->
 
 
-
+<script>const rsvc = true;</script>
 <?php $this->load->view("_partials/js.php") ?>
 </body>
 <footer class="page-footer font-small green">
 	<div class="footer-copyright text-center py-3">
-		Copyright &copy; <a href="http://taufikdwp.tk">Taufik Dwi Wahyu Putra</a> 2020
+		Copyright &copy; <?php echo date("Y"); ?> <a href="https://topyk27.github.io/">Taufik Dwi Wahyu Putra</a> and <a href="https://responsivevoice.org/">ResponsiveVoice.JS</a> Text to Speech
 	</div>
 </footer>
 </html>

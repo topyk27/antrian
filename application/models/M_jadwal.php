@@ -171,8 +171,9 @@ class M_jadwal extends CI_Model
 	public function sync($tgl)
 	{
 		$query_insert = array();
-		$statement = "SELECT p.nomor_perkara, p.pihak1_text, p.pihak2_text, j.tanggal_sidang, j.ruangan FROM perkara AS p, perkara_jadwal_sidang AS j WHERE p.perkara_id = j.perkara_id AND j.tanggal_sidang = '$tgl';";
+		$statement = "SELECT p.nomor_perkara, p.pihak1_text, p.pihak2_text, j.tanggal_sidang, j.ruangan FROM perkara AS p, perkara_jadwal_sidang AS j WHERE p.perkara_id = j.perkara_id AND j.tanggal_sidang = '$tgl'";
 		$query = $this->db->query($statement);
+		// return $this->db->last_query();
 		$result = $query->result();
 		foreach($result as $row)
 		{

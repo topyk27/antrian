@@ -10,14 +10,22 @@
 				</div>
 			<?php endif; ?>
 			<div style="float: right;">
-				<a href="/antrian/index.php/antrian/ruang/1" class="btn btn-small">
-					<i class="fas fa-list" title="antrian ruang sidang 1"></i>
-					Antrian ruang sidang 1
-				</a>
-				<a href="/antrian/index.php/antrian/ruang/2" class="btn btn-small">
-					<i class="fas fa-list" title="antrian ruang sidang 2"></i>
-					Antrian ruang sidang 2
-				</a>
+				<?php $today = date("Y-m-d"); $target = "2023-05-27"; ?>
+				<?php if($today >= $target) : ?>
+					<a href="/antrian/index.php/antrian/ruang" class="btn btn-small">
+						<i class="fas fa-list" title="Daftar Antrian"></i>
+						Daftar Antrian
+					</a>
+				<?php else: ?>
+					<a href="/antrian/index.php/antrian/ruang/1" class="btn btn-small">
+						<i class="fas fa-list" title="antrian ruang sidang 1"></i>
+						Antrian ruang sidang 1
+					</a>
+					<a href="/antrian/index.php/antrian/ruang/2" class="btn btn-small">
+						<i class="fas fa-list" title="antrian ruang sidang 2"></i>
+						Antrian ruang sidang 2
+					</a>
+				<?php endif; ?>
 			</div>
 			<!-- <form action="<?php echo 'login/proses_login'; ?>" method="post"> -->
 			<form method="post">

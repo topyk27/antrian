@@ -14,11 +14,18 @@ class Antrian extends CI_Controller
 		$this->load->model("m_jadwal");
 	}
 
-	public function ruang($ruang_sidang)
+	public function ruang($ruang_sidang = null)
 	{
 		// $data["jadwals"] = $this->m_jadwal->getByRuangSidang($ruang_sidang);
-		$data["ruang"] = $ruang_sidang;
-		$this->load->view('antrian/daftar_antrian', $data);
+		if($ruang_sidang == null)
+		{
+			$this->load->view('antrian/daftar_antrian_semua');
+		}
+		else
+		{
+			$data["ruang"] = $ruang_sidang;
+			$this->load->view('antrian/daftar_antrian', $data);
+		}
 	}
 
 	public function daftar_sidang($ruang_sidang)
